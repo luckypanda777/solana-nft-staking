@@ -21,12 +21,13 @@ pub mod test_stake {
         Ok(())
     }
 
-    pub fn stake_nft(ctx: Context<StakeNFT>, symbol: String, period: i64) -> ProgramResult {
+    pub fn stake_nft(ctx: Context<StakeNFT>, symbol: String) -> ProgramResult {
         let metaplex_pubkey = METAPLEX_PROGRAM_ID
             .parse::<Pubkey>()
             .expect("Failed to parse Metaplex Program Id");
 
         let mint = *ctx.accounts.mint.key;
+        let period = *ctx.accounts.period;
 
         let seeds = &[
             "metadata".as_bytes(),

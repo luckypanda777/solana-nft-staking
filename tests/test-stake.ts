@@ -146,6 +146,7 @@ describe("test-stake", () => {
         clock: web3.SYSVAR_CLOCK_PUBKEY,
         systemProgram: web3.SystemProgram.programId,
         tokenProgram: TOKEN_PROGRAM_ID,
+        period: 5184000,
       },
       signers: [],
     });
